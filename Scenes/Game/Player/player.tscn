@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ds3le8o5x5gu0" path="res://Assets_sprout/Sprout Lands - Sprites - premium pack/Characters/Premium Charakter Spritesheet.png" id="1_teym4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhprg"]
-size = Vector2(9.70586, 6.93781)
+size = Vector2(9.70586, 4.53626)
 
 [sub_resource type="Animation" id="Animation_hxvts"]
 length = 0.001
@@ -460,11 +460,12 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(2.06061, 1.87379)
+collision_mask = 61
 script = ExtResource("1_gqdmf")
 SPEED = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4.8031)
+position = Vector2(0, 6.00388)
 shape = SubResource("RectangleShape2D_yhprg")
 
 [node name="SpritePlayer" type="Sprite2D" parent="."]
