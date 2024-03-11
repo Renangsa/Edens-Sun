@@ -1,13 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://7bwsfocal5n2"]
+[gd_scene load_steps=9 format=3 uid="uid://7bwsfocal5n2"]
 
 [ext_resource type="Script" path="res://Scenes/Game/game_world.gd" id="1_nxhxx"]
 [ext_resource type="PackedScene" uid="uid://4d7d3fmbcw6t" path="res://Scenes/Game/Player/player.tscn" id="2_nw6r8"]
 [ext_resource type="PackedScene" uid="uid://1bniaefta0am" path="res://Scenes/Game/Levels/level_farm.tscn" id="3_womhe"]
+[ext_resource type="PackedScene" uid="uid://bbl7qnrxvinpx" path="res://Scenes/Game/Objects/Resources/resource_node_tree_2.tscn" id="4_uwiym"]
+[ext_resource type="PackedScene" uid="uid://dehqgdlo6eahx" path="res://Scenes/Game/Objects/Resources/resource_node_tree_1.tscn" id="5_wvmax"]
+[ext_resource type="PackedScene" uid="uid://bk2o4q7hupmkm" path="res://Scenes/Game/Objects/Resources/resource_node_rock_1.tscn" id="6_mn1hf"]
+[ext_resource type="PackedScene" uid="uid://b17hmyb05wcfo" path="res://Scenes/Game/Objects/Resources/resource_node_rock_2.tscn" id="7_xqbb7"]
+[ext_resource type="PackedScene" uid="uid://b3uwh5jhpoywp" path="res://Scenes/Game/Objects/Resources/resource_node_rock_3.tscn" id="8_1k8i7"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_nxhxx")
 
 [node name="level_farm" parent="." instance=ExtResource("3_womhe")]
+position = Vector2(-6.10352e-05, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ResourceNodes" type="Node" parent="."]
+
+[node name="ResourceNode_Tree2" parent="ResourceNodes" instance=ExtResource("4_uwiym")]
+position = Vector2(502, 147)
+
+[node name="ResourceNode_Tree1" parent="ResourceNodes" instance=ExtResource("5_wvmax")]
+position = Vector2(359, 81)
+
+[node name="ResourceNode_Rock1" parent="ResourceNodes" instance=ExtResource("6_mn1hf")]
+position = Vector2(410, 137)
+
+[node name="ResourceNode_Rock2" parent="ResourceNodes" instance=ExtResource("7_xqbb7")]
+position = Vector2(435, 60)
+
+[node name="ResourceNode_Rock3" parent="ResourceNodes" instance=ExtResource("8_1k8i7")]
+position = Vector2(518, 98)
 
 [node name="Player" parent="." instance=ExtResource("2_nw6r8")]
 position = Vector2(594, 35)

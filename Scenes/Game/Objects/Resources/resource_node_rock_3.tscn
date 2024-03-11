@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3uwh5jhpoywp"]
+
+[ext_resource type="Texture2D" uid="uid://dlcfwxmsb33vc" path="res://Assets_sprout/Sprout Lands - Sprites - premium pack/Objects/Resource_Nodes/Rock3.png" id="1_8e06l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q8cv4"]
+radius = 15.1327
+
+[node name="ResourceNode_Rock3" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_q8cv4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8e06l")

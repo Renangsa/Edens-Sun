@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://dspt0np0e6nyp"]
+
+[ext_resource type="Texture2D" uid="uid://c6oqg45eaj0qw" path="res://Assets_sprout/Sprout Lands - Sprites - premium pack/Objects/Items/items_png/hoe.png" id="1_3xwp8"]
+[ext_resource type="Script" path="res://Scenes/UI/hotbar.gd" id="1_e4vul"]
+[ext_resource type="Texture2D" uid="uid://c30wy01c3al4p" path="res://Assets_sprout/Sprout Lands - Sprites - premium pack/Objects/Items/items_png/axe.png" id="2_o26gf"]
+[ext_resource type="Texture2D" uid="uid://wmj7lfchgve8" path="res://Assets_sprout/Sprout Lands - Sprites - premium pack/Objects/Items/items_png/watering.png" id="3_by6gf"]
+
+[node name="Hotbar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e4vul")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 8
+
+[node name="ItemButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("1_3xwp8")
+
+[node name="ItemButton2" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("2_o26gf")
+
+[node name="ItemButton3" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("3_by6gf")
+
+[node name="ItemButton4" type="Button" parent="GridContainer"]
+layout_mode = 2
+
+[node name="ItemButton5" type="Button" parent="GridContainer"]
+layout_mode = 2
+
+[node name="ItemButton6" type="Button" parent="GridContainer"]
+layout_mode = 2
+
+[node name="ItemButton7" type="Button" parent="GridContainer"]
+layout_mode = 2
+
+[node name="ItemButton8" type="Button" parent="GridContainer"]
+layout_mode = 2
