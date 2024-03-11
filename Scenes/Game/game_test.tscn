@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://bakjnobtjtelk"]
+
+[ext_resource type="PackedScene" uid="uid://1bniaefta0am" path="res://Scenes/Game/Levels/level_farm.tscn" id="1_amah8"]
+[ext_resource type="PackedScene" uid="uid://bk2o4q7hupmkm" path="res://Scenes/Game/Objects/Resources/resource_node_rock_1.tscn" id="2_6j3kc"]
+[ext_resource type="PackedScene" uid="uid://dehqgdlo6eahx" path="res://Scenes/Game/Objects/Resources/resource_node_tree_1.tscn" id="3_6jvgn"]
+[ext_resource type="PackedScene" uid="uid://b3uwh5jhpoywp" path="res://Scenes/Game/Objects/Resources/resource_node_rock_3.tscn" id="4_m2xat"]
+[ext_resource type="PackedScene" uid="uid://b17hmyb05wcfo" path="res://Scenes/Game/Objects/Resources/resource_node_rock_2.tscn" id="5_qub8x"]
+[ext_resource type="PackedScene" uid="uid://bbl7qnrxvinpx" path="res://Scenes/Game/Objects/Resources/resource_node_tree_2.tscn" id="6_mhqv8"]
+[ext_resource type="PackedScene" uid="uid://4d7d3fmbcw6t" path="res://Scenes/Game/Player/player.tscn" id="7_aq626"]
+
+[node name="Game_test" type="Node2D"]
+
+[node name="level_farm" parent="." instance=ExtResource("1_amah8")]
+position = Vector2(-6.10352e-05, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ResourceNode_Rock1" parent="." instance=ExtResource("2_6j3kc")]
+position = Vector2(410, 137)
+
+[node name="ResourceNode_Tree1" parent="." instance=ExtResource("3_6jvgn")]
+position = Vector2(359, 81)
+
+[node name="ResourceNode_Rock3" parent="." instance=ExtResource("4_m2xat")]
+position = Vector2(518, 98)
+
+[node name="ResourceNode_Rock2" parent="." instance=ExtResource("5_qub8x")]
+position = Vector2(435, 60)
+
+[node name="ResourceNode_Tree2" parent="." instance=ExtResource("6_mhqv8")]
+position = Vector2(502, 147)
+
+[node name="Player" parent="." instance=ExtResource("7_aq626")]
+position = Vector2(559, 79)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+scale = Vector2(0.9, 0.9)
+zoom = Vector2(2.5, 2.5)
+limit_left = -250
+limit_top = -300
+limit_right = 1838
+limit_bottom = 660

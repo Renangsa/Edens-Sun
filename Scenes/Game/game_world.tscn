@@ -17,22 +17,20 @@ position = Vector2(-6.10352e-05, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ResourceNodes" type="Node" parent="."]
-
-[node name="ResourceNode_Tree2" parent="ResourceNodes" instance=ExtResource("4_uwiym")]
-position = Vector2(502, 147)
-
-[node name="ResourceNode_Tree1" parent="ResourceNodes" instance=ExtResource("5_wvmax")]
-position = Vector2(359, 81)
-
-[node name="ResourceNode_Rock1" parent="ResourceNodes" instance=ExtResource("6_mn1hf")]
+[node name="ResourceNode_Rock1" parent="." instance=ExtResource("6_mn1hf")]
 position = Vector2(410, 137)
 
-[node name="ResourceNode_Rock2" parent="ResourceNodes" instance=ExtResource("7_xqbb7")]
+[node name="ResourceNode_Tree1" parent="." instance=ExtResource("5_wvmax")]
+position = Vector2(359, 81)
+
+[node name="ResourceNode_Rock3" parent="." instance=ExtResource("8_1k8i7")]
+position = Vector2(518, 98)
+
+[node name="ResourceNode_Rock2" parent="." instance=ExtResource("7_xqbb7")]
 position = Vector2(435, 60)
 
-[node name="ResourceNode_Rock3" parent="ResourceNodes" instance=ExtResource("8_1k8i7")]
-position = Vector2(518, 98)
+[node name="ResourceNode_Tree2" parent="." instance=ExtResource("4_uwiym")]
+position = Vector2(502, 147)
 
 [node name="Player" parent="." instance=ExtResource("2_nw6r8")]
 position = Vector2(594, 35)
