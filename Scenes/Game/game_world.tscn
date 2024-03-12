@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://7bwsfocal5n2"]
+[gd_scene load_steps=11 format=3 uid="uid://7bwsfocal5n2"]
 
 [ext_resource type="Script" path="res://Scenes/Game/game_world.gd" id="1_nxhxx"]
 [ext_resource type="PackedScene" uid="uid://4d7d3fmbcw6t" path="res://Scenes/Game/Player/player.tscn" id="2_nw6r8"]
@@ -8,14 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://bk2o4q7hupmkm" path="res://Scenes/Game/Objects/Resources/resource_node_rock_1.tscn" id="6_mn1hf"]
 [ext_resource type="PackedScene" uid="uid://b17hmyb05wcfo" path="res://Scenes/Game/Objects/Resources/resource_node_rock_2.tscn" id="7_xqbb7"]
 [ext_resource type="PackedScene" uid="uid://b3uwh5jhpoywp" path="res://Scenes/Game/Objects/Resources/resource_node_rock_3.tscn" id="8_1k8i7"]
+[ext_resource type="PackedScene" uid="uid://cvpfbykw4wyqs" path="res://Scenes/Game/Enemies/enemy.tscn" id="9_cla2x"]
+[ext_resource type="Script" path="res://Scenes/Game/HealthBar.gd" id="10_6jscf"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_nxhxx")
 
 [node name="level_farm" parent="." instance=ExtResource("3_womhe")]
 position = Vector2(-6.10352e-05, 0)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ResourceNode_Rock1" parent="." instance=ExtResource("6_mn1hf")]
 position = Vector2(410, 137)
@@ -32,13 +32,30 @@ position = Vector2(435, 60)
 [node name="ResourceNode_Tree2" parent="." instance=ExtResource("4_uwiym")]
 position = Vector2(502, 147)
 
+[node name="Enemy" parent="." instance=ExtResource("9_cla2x")]
+position = Vector2(329, -47)
+
 [node name="Player" parent="." instance=ExtResource("2_nw6r8")]
 position = Vector2(594, 35)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-scale = Vector2(0.9, 0.9)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(594, 35)
+scale = Vector2(0.81, 0.81)
 zoom = Vector2(2.5, 2.5)
 limit_left = -250
 limit_top = -300
 limit_right = 1838
 limit_bottom = 660
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 15.0
+offset_top = 50.0
+offset_right = 32.0
+offset_bottom = 207.0
+max_value = 50.0
+value = 25.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("10_6jscf")

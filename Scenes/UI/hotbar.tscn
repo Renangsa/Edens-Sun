@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dspt0np0e6nyp"]
+[gd_scene load_steps=7 format=3 uid="uid://dspt0np0e6nyp"]
 
 [ext_resource type="Texture2D" uid="uid://c6oqg45eaj0qw" path="res://Assets_sprout/Sprout Lands - Sprites - premium pack/Objects/Items/items_png/hoe.png" id="1_3xwp8"]
 [ext_resource type="Script" path="res://Scenes/UI/hotbar.gd" id="1_e4vul"]
 [ext_resource type="Texture2D" uid="uid://c30wy01c3al4p" path="res://Assets_sprout/Sprout Lands - Sprites - premium pack/Objects/Items/items_png/axe.png" id="2_o26gf"]
+[ext_resource type="Script" path="res://Scenes/UI/ItemButton.gd" id="3_aow5y"]
 [ext_resource type="Texture2D" uid="uid://wmj7lfchgve8" path="res://Assets_sprout/Sprout Lands - Sprites - premium pack/Objects/Items/items_png/watering.png" id="3_by6gf"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ldfvo"]
 
 [node name="Hotbar" type="Control"]
 layout_mode = 3
@@ -28,6 +31,7 @@ columns = 8
 [node name="ItemButton" type="Button" parent="GridContainer"]
 layout_mode = 2
 icon = ExtResource("1_3xwp8")
+script = ExtResource("3_aow5y")
 
 [node name="ItemButton2" type="Button" parent="GridContainer"]
 layout_mode = 2
@@ -51,3 +55,4 @@ layout_mode = 2
 
 [node name="ItemButton8" type="Button" parent="GridContainer"]
 layout_mode = 2
+icon = SubResource("ViewportTexture_ldfvo")

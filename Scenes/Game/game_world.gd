@@ -1,37 +1,44 @@
 extends Node2D
 
-@onready var tile_map : TileMap = $level_farm/TileMap 
-
+@onready var tile_map : TileMap = $level_farm/TileMap
+@onready var player := $Player as CharacterBody2D
+@onready var camera := $Camera2D as Camera2D
 var ground_layer = 0
 var overground_layer = 1
 var environment_layer = 2
 var can_place_seeds_custom_data = "can_place_seeds"
 var can_place_dirt_custom_data = "can_place_tiles"
 
-enum FARMING_MODE {SEED, DIRT}
-var farming_mode = FARMING_MODE.DIRT
+enum FARMING_MODE {SEED, HOE, AXE}
+var farming_mode = FARMING_MODE.AXE
 var dirt_tiles = []
+
+func _ready():
+	player.follow_camera(camera)
 
 func _input(_event):
 	if Input.is_key_pressed(KEY_ESCAPE):
 		get_tree().change_scene_to_file("res://Scenes/Menus/MainMenu/mainmenu.tscn")
 	if Input.is_action_just_pressed("toggle_dirt"):
-		farming_mode = FARMING_MODE.DIRT
+		farming_mode = FARMING_MODE.HOE
 	if Input.is_action_just_pressed("toggle_seed"):
 		farming_mode = FARMING_MODE.SEED
+	if Input.is_action_just_pressed("toggle_axe"):
+		farming_mode = FARMING_MODE.AXE
 	if Input.is_action_just_pressed("click"):
 		
 		var mouse_pos = get_global_mouse_position()
 		var tile_mouse_pos : Vector2i = tile_map.local_to_map(mouse_pos)
-		
+
 		if farming_mode == FARMING_MODE.SEED:
 			var atlas_coord : Vector2i = Vector2i(0,3)
 			if retrieving_custom_data(tile_mouse_pos, can_place_seeds_custom_data, overground_layer):
 				var level : int = 0
 				var final_seed_level : int = 3
 				handle_seed(tile_mouse_pos, level, atlas_coord, final_seed_level)
-		elif farming_mode == FARMING_MODE.DIRT:
+		elif farming_mode == FARMING_MODE.HOE:
 			if retrieving_custom_data(tile_mouse_pos, can_place_dirt_custom_data, ground_layer):
+				await get_tree().create_timer(0.5).timeout #Timer da animação da enxada
 				dirt_tiles.append(tile_mouse_pos)
 				tile_map.set_cells_terrain_connect(overground_layer, dirt_tiles, 1, 0)
 				
