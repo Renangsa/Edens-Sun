@@ -6,12 +6,10 @@ var current_health: int
 func _ready():
 	current_health = max_health
 
-func take_damage(damage: int):
+func damage(damage: int):
 	current_health -= damage
+	print(current_health)
 	if current_health <= 0:
-		die()
+		get_parent().queue_free()
 
-func die():
-	get_parent().queue_free()
-	get_tree().change_scene_to_file("res://Scenes/Menus/MainMenu/mainmenu.tscn")
 	

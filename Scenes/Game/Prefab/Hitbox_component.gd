@@ -10,3 +10,4 @@ func _on_hurtbox_area_entered(area: Area2D):
 		var hurtbox : HurtboxComponent = area
 		
 		hurtbox.damage(attack_damage)
+

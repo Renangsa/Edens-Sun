@@ -12,7 +12,7 @@ func _ready():
 
 func _physics_process(_delta):
 	if player_chase:
-		var target_position = (player.position - position).normalized()
+		target_position = (player.position - position).normalized()
 		velocity = target_position * speed
 		move_and_slide()
 		enemy_animation.play("bouncing")

@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 @export var SPEED: int = 150
 @onready var player_animation = $AnimationPlayer
-@onready var remote_transform = $Remote as RemoteTransform2D
 var input_direction : Vector2 = Vector2.ZERO
 var look_direction = "down"
 var in_action = false
@@ -14,6 +13,11 @@ func handleInput():
 	
 	if Input.is_action_just_pressed("click"):
 		player_animation.play("axe_"+look_direction)
+		in_action = true
+		await player_animation.animation_finished
+		in_action = false
+	elif Input.is_action_just_pressed("click"):
+		player_animation.play("hoe_"+look_direction)
 		in_action = true
 		await player_animation.animation_finished
 		in_action = false
@@ -40,7 +44,3 @@ func _physics_process(_delta):
 		move_and_slide()
 	updateAnimation()
 	
-func follow_camera(camera):
-	var camera_path = camera.get_path()
-	remote_transform.remote_path = camera_path
-

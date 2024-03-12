@@ -1,8 +1,7 @@
 extends Node2D
-
+class_name GameWorld 
 @onready var tile_map : TileMap = $level_farm/TileMap
-@onready var player := $Player as CharacterBody2D
-@onready var camera := $Camera2D as Camera2D
+
 var ground_layer = 0
 var overground_layer = 1
 var environment_layer = 2
@@ -14,7 +13,8 @@ var farming_mode = FARMING_MODE.AXE
 var dirt_tiles = []
 
 func _ready():
-	player.follow_camera(camera)
+	$AudioStreamPlayer2D.play()
+	
 
 func _input(_event):
 	if Input.is_key_pressed(KEY_ESCAPE):
@@ -31,7 +31,7 @@ func _input(_event):
 		var tile_mouse_pos : Vector2i = tile_map.local_to_map(mouse_pos)
 
 		if farming_mode == FARMING_MODE.SEED:
-			var atlas_coord : Vector2i = Vector2i(0,3)
+			var atlas_coord : Vector2i = Vector2i(0,9)
 			if retrieving_custom_data(tile_mouse_pos, can_place_seeds_custom_data, overground_layer):
 				var level : int = 0
 				var final_seed_level : int = 3
@@ -53,10 +53,14 @@ func retrieving_custom_data(tile_mouse_pos, custom_data_layer, layer):
 func handle_seed(tile_map_pos, level, atlas_coord, final_seed_level):
 	var source_id : int = 20
 	tile_map.set_cell(environment_layer, tile_map_pos, source_id, atlas_coord)
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(10.0).timeout
 	
 	if level == final_seed_level:
 		return 
 	else:
 		var new_atlas : Vector2i = Vector2i(atlas_coord.x +1, atlas_coord.y)
 		handle_seed(tile_map_pos, level+1, new_atlas, final_seed_level)
+
+
+func _on_audio_stream_player_2d_finished():
+	$AudioStreamPlayer2D.play()

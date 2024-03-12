@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://7bwsfocal5n2"]
+[gd_scene load_steps=12 format=3 uid="uid://7bwsfocal5n2"]
 
 [ext_resource type="Script" path="res://Scenes/Game/game_world.gd" id="1_nxhxx"]
 [ext_resource type="PackedScene" uid="uid://4d7d3fmbcw6t" path="res://Scenes/Game/Player/player.tscn" id="2_nw6r8"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b3uwh5jhpoywp" path="res://Scenes/Game/Objects/Resources/resource_node_rock_3.tscn" id="8_1k8i7"]
 [ext_resource type="PackedScene" uid="uid://cvpfbykw4wyqs" path="res://Scenes/Game/Enemies/enemy.tscn" id="9_cla2x"]
 [ext_resource type="Script" path="res://Scenes/Game/HealthBar.gd" id="10_6jscf"]
+[ext_resource type="AudioStream" uid="uid://b7ga35y4g6ewu" path="res://Audio/Retro Beat.ogg" id="11_uj7rd"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_nxhxx")
@@ -32,15 +33,22 @@ position = Vector2(435, 60)
 [node name="ResourceNode_Tree2" parent="." instance=ExtResource("4_uwiym")]
 position = Vector2(502, 147)
 
+[node name="Enemy2" parent="." instance=ExtResource("9_cla2x")]
+
+[node name="Enemy3" parent="." instance=ExtResource("9_cla2x")]
+position = Vector2(178, 261)
+
 [node name="Enemy" parent="." instance=ExtResource("9_cla2x")]
 position = Vector2(329, -47)
+
+[node name="Enemy4" parent="." instance=ExtResource("9_cla2x")]
+position = Vector2(633, 301)
 
 [node name="Player" parent="." instance=ExtResource("2_nw6r8")]
 position = Vector2(594, 35)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(594, 35)
-scale = Vector2(0.81, 0.81)
+[node name="Camera2D" type="Camera2D" parent="Player"]
+scale = Vector2(0.9, 0.9)
 zoom = Vector2(2.5, 2.5)
 limit_left = -250
 limit_top = -300
@@ -59,3 +67,9 @@ value = 25.0
 fill_mode = 3
 show_percentage = false
 script = ExtResource("10_6jscf")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_uj7rd")
+autoplay = true
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

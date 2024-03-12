@@ -655,7 +655,7 @@ vframes = 24
 
 [node name="HitboxComponent" parent="HandEquip" instance=ExtResource("4_k0ity")]
 collision_layer = 0
-collision_mask = 13
+collision_mask = 12
 attack_damage = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandEquip/HitboxComponent"]
@@ -680,5 +680,3 @@ shape = SubResource("CapsuleShape2D_l3115")
 
 [node name="HealthComponent" parent="." instance=ExtResource("6_s0jxx")]
 max_health = 10
-
-[node name="Remote" type="RemoteTransform2D" parent="."]

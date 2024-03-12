@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dehqgdlo6eahx"]
+[gd_scene load_steps=6 format=3 uid="uid://dehqgdlo6eahx"]
 
 [ext_resource type="Texture2D" uid="uid://b51kkxg6geosn" path="res://Assets_sprout/Sprout Lands - Sprites - premium pack/Objects/Resource_Nodes/Tree1.png" id="1_5irk6"]
+[ext_resource type="PackedScene" uid="uid://dn62tjq05x01b" path="res://Scenes/Game/Prefab/health_component.tscn" id="2_ixx5m"]
+[ext_resource type="PackedScene" uid="uid://cs5w73ld8hqrn" path="res://Scenes/Game/Prefab/hurtbox_component.tscn" id="3_13eim"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qem5t"]
 radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_73kp4"]
+radius = 9.0
 
 [node name="ResourceNode_Tree1" type="StaticBody2D"]
 collision_layer = 8
@@ -15,3 +20,16 @@ shape = SubResource("CircleShape2D_qem5t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_5irk6")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_ixx5m")]
+max_health = 2
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_13eim")]
+collision_layer = 8
+collision_mask = 0
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_73kp4")
+debug_color = Color(0.819608, 0.368627, 0.431373, 0.419608)
