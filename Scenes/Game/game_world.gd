@@ -13,8 +13,7 @@ var farming_mode = FARMING_MODE.AXE
 var dirt_tiles = []
 
 func _ready():
-	$AudioStreamPlayer2D.play()
-	
+	$AudioStreamPlayer.play()
 
 func _input(_event):
 	if Input.is_key_pressed(KEY_ESCAPE):
@@ -62,5 +61,5 @@ func handle_seed(tile_map_pos, level, atlas_coord, final_seed_level):
 		handle_seed(tile_map_pos, level+1, new_atlas, final_seed_level)
 
 
-func _on_audio_stream_player_2d_finished():
-	$AudioStreamPlayer2D.play()
+func _on_audio_stream_player_finished():
+	$AudioStreamPlayer.play()

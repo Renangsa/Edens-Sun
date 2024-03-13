@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4m4iqd230666"]
+
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_6oa3r"]
+[ext_resource type="PackedScene" uid="uid://cgs4r0e5qgwno" path="res://Scenes/Menus/MainMenu/mainmenu.tscn" id="3_hro28"]
+[ext_resource type="AudioStream" uid="uid://bukp3uqdu57vr" path="res://Audio/Retro Mystic.ogg" id="3_k2f7q"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_6oa3r")
+
+[node name="MainMenu" parent="." instance=ExtResource("3_hro28")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_k2f7q")
+volume_db = -2.584
+autoplay = true
