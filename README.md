@@ -7,3 +7,7 @@
 ## 📁 Abrir e rodar o projeto
 
 **Para jogar, basta abrir o executável "Eden's Sun.exe"**
+
+## ⌨️ Como jogar
+
+**Você controla o personagem com as teclas direcionais e com o WASD. Para realizar uma ação, basta clicar com o botão esquerdo do mouse (MB1). O jogador começa com o machado equipado, sua ação consiste em atacar o que estiver na sua frente, desde aos slimes inimigos até as pedras e tocos de árvore. Para trocar o tipo de ação aperte a tecla numérica: "1"(Modo de Ataque), "2"(Modo de arar a terra) e "3"(Modo de plantar sementes nas terras aradas). Para conseguir plantar, é necessário arar a terra antes.**
